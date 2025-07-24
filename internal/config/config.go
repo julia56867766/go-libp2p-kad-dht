@@ -161,20 +161,20 @@ func (c *Config) Validate() error {
 		return fmt.Errorf("protocol prefix %s must use a namespaced Validator", DefaultPrefix)
 	}
 
-	if len(nsval) != 2 {
-		return fmt.Errorf("protocol prefix %s must have exactly two namespaced validators - /pk and /ipns", DefaultPrefix)
-	}
+	// if len(nsval) != 2 {
+	// 	return fmt.Errorf("protocol prefix %s must have exactly two namespaced validators - /pk and /ipns", DefaultPrefix)
+	// }
 
-	if pkVal, pkValFound := nsval["pk"]; !pkValFound {
-		return fmt.Errorf("protocol prefix %s must support the /pk namespaced Validator", DefaultPrefix)
-	} else if _, ok := pkVal.(record.PublicKeyValidator); !ok {
-		return fmt.Errorf("protocol prefix %s must use the record.PublicKeyValidator for the /pk namespace", DefaultPrefix)
-	}
+	// if pkVal, pkValFound := nsval["pk"]; !pkValFound {
+	// 	return fmt.Errorf("protocol prefix %s must support the /pk namespaced Validator", DefaultPrefix)
+	// } else if _, ok := pkVal.(record.PublicKeyValidator); !ok {
+	// 	return fmt.Errorf("protocol prefix %s must use the record.PublicKeyValidator for the /pk namespace", DefaultPrefix)
+	// }
 
-	if ipnsVal, ipnsValFound := nsval["ipns"]; !ipnsValFound {
-		return fmt.Errorf("protocol prefix %s must support the /ipns namespaced Validator", DefaultPrefix)
-	} else if _, ok := ipnsVal.(ipns.Validator); !ok {
-		return fmt.Errorf("protocol prefix %s must use ipns.Validator for the /ipns namespace", DefaultPrefix)
-	}
+	// if ipnsVal, ipnsValFound := nsval["ipns"]; !ipnsValFound {
+	// 	return fmt.Errorf("protocol prefix %s must support the /ipns namespaced Validator", DefaultPrefix)
+	// } else if _, ok := ipnsVal.(ipns.Validator); !ok {
+	// 	return fmt.Errorf("protocol prefix %s must use ipns.Validator for the /ipns namespace", DefaultPrefix)
+	// }
 	return nil
 }
