@@ -156,7 +156,7 @@ func (c *Config) Validate() error {
 		return fmt.Errorf("protocol prefix %s must have values enabled", DefaultPrefix)
 	}
 
-	nsval, isNSVal := c.Validator.(record.NamespacedValidator)
+	_, isNSVal := c.Validator.(record.NamespacedValidator)
 	if !isNSVal {
 		return fmt.Errorf("protocol prefix %s must use a namespaced Validator", DefaultPrefix)
 	}
